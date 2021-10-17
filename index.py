@@ -45,10 +45,14 @@ def busca_perfil():
             attachment_filename= imagens_zip,
             as_attachment = True)
 
+@app.errorhandler(500)
+def internal_error(error):
+    return render_template('erro-500.html')
     
-@app.route("/404")
-def not_found():
-    return render_template('404.html')
+# @app.route("/404")
+# def not_found():
+#     return render_template('404.html')
+    
 
 if __name__ == '__main__':
     app.debug = True
